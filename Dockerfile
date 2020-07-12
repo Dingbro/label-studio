@@ -8,7 +8,7 @@ COPY requirements.txt /label-studio
 RUN pip install -r requirements.txt
 
 ENV PORT="8080"
-ENV PROJECT_NAME=my_project
+ENV PROJECT_NAME=trash_project
 
 EXPOSE ${PORT}
 
