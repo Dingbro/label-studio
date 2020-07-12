@@ -4,7 +4,7 @@
   </View>
 
   <View style="padding-left: 2em; margin-right: 2em; width: 450px">
-    <Choices name="importance" toName="image" showInLine="true">
+    <Choices name="importance" toName="image" showInLine="true" required="true" requiredMessage="데이터 포함 여부를 선택해주세요.">
       <View style="width: 100%">
         <Header value="일러스트나 그림이 아니라 실제 물체 사진인가요?" />
       </View>
@@ -30,7 +30,7 @@
       <Choice value="음식물쓰레기 같지만 일반쓰레기" background="green" />
     </Choices>
   
-    <Choices name="worker" toName="image" showInLine="true">
+    <Choices name="worker" toName="image" showInLine="true" required="true" requiredMessage="작업자 코드를 선택해주세요.">
       <View style="width: 100%">
         <Header value="작업자 코드를 선택해주세요" />
       </View>
@@ -43,7 +43,7 @@
       <Choice value="G" />
       <Choice value="H" />
       <Choice value="I" />
-      <Choice value="J" />
+      <Choice value="Admin" />
     </Choices>
   </View>  
 </View>
