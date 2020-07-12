@@ -9,4 +9,3 @@ label-studio start ${PROJECT_NAME:-trash_project} --init -b --host 0.0.0.0 --por
 -l config.xml -c config.json \
 --sampling uniform \
 --log-level ERROR
-
