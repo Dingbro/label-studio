@@ -1,7 +1,5 @@
 <View style="display: flex;">
-  <View style="height: 100%">
-    <Image name="image" value="$image"/>
-  </View>
+
 
   <View style="padding-left: 2em; margin-right: 2em; width: 450px">
     <Choices name="importance" toName="image" showInLine="true" required="true" requiredMessage="데이터 포함 여부를 선택해주세요.">
@@ -46,4 +44,8 @@
       <Choice value="Admin" />
     </Choices>
   </View>  
+  
+    <View style="height: 100%; overflow: auto;">
+    <Image name="image" value="$image"/>
+  </View>
 </View>
