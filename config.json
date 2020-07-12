@@ -5,7 +5,7 @@
   "port": 8080,
   "debug": false,
   "input_path": null,
-  "output_dir": "./trash_project/completions",
+  "output_dir": "completions",
   "instruction": "이 사이트는 쓰레기를 라벨링하기 위한 사이트입니다.",
   "allow_delete_completions": false,
   "templates_dir": "examples",
@@ -34,6 +34,5 @@
       "create_local_copy": false
     }
   },
-  "config_path": "/Users/jaeyeongjo/PycharmProjects/trash-label-studio/config.json",
   "label_config_updated": true
 }
