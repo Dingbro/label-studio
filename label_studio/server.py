@@ -275,20 +275,20 @@ def import_page():
     )
 
 
-@app.route('/export')
-@requires_auth
-@exception_treatment_page
-def export_page():
-    """ Export completions as JSON or using converters
-    """
-    project = project_get_or_create()
-    project.analytics.send(getframeinfo(currentframe()).function)
-    return flask.render_template(
-        'export.html',
-        config=project.config,
-        formats=project.converter.supported_formats,
-        project=project
-    )
+# @app.route('/export')
+# @requires_auth
+# @exception_treatment_page
+# def export_page():
+#     """ Export completions as JSON or using converters
+#     """
+#     project = project_get_or_create()
+#     project.analytics.send(getframeinfo(currentframe()).function)
+#     return flask.render_template(
+#         'export.html',
+#         config=project.config,
+#         formats=project.converter.supported_formats,
+#         project=project
+#     )
 
 
 @app.route('/model')
