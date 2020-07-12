@@ -1,50 +1,49 @@
-<View>
-  <Image name="image" value="$image"/>
-  
-  
+<View style="display: flex;">
+  <View style="height: 100%">
+    <Image name="image" value="$image"/>
+  </View>
 
+  <View style="padding-left: 2em; margin-right: 2em; width: 450px">
+    <Choices name="importance" toName="image" showInLine="true">
+      <View style="width: 100%">
+        <Header value="일러스트나 그림이 아니라 실제 물체 사진인가요?" />
+      </View>
+      <Choice value="예" />
+      <Choice value="아니요" />
+    </Choices>
   
-  <Choices name="importance" toName="image" showInLine="true">
-    <View style="width: 100%">
-      <Header value="일러스트나 그림이 아니라 실제 물체 사진인가요?" />
-    </View>
-    <Choice value="예" />
-    <Choice value="아니요" />
-  </Choices>
+    <Choices name="class" toName="image" showInLine="true" choice="multiple"
+            visibleWhen="choice-selected"
+            whenTagName="importance"
+            whenChoiceValue="예">
+      <View style="width: 100%">
+        <Header value="사진 내에 존재하는 쓰레기를 모두 선택해주세요" />
+      </View>
+      <Choice value="일반쓰레기" background="blue"/>
+      <Choice value="종이류" background="green" />
+      <Choice value="캔류/고철류" background="green" />
+      <Choice value="유리병류" background="green" />
+      <Choice value="플라스틱류(페트병 포함)" background="green" />
+      <Choice value="비닐류" background="green" />
+      <Choice value="스티로폼류" background="green" />
+      <Choice value="음식물쓰레기" background="green" />
+      <Choice value="음식물쓰레기 같지만 일반쓰레기" background="green" />
+    </Choices>
   
-  
-  <Choices name="class" toName="image" showInLine="true" choice="multiple"
-           visibleWhen="choice-selected"
-           whenTagName="importance"
-           whenChoiceValue="예">
-    <View style="width: 100%">
-      <Header value="사진 내에 존재하는 쓰레기를 모두 선택해주세요" />
-    </View>
-    <Choice value="일반쓰레기" background="blue"/>
-    <Choice value="종이류" background="green" />
-    <Choice value="캔류/고철류" background="green" />
-    <Choice value="유리병류" background="green" />
-    <Choice value="플라스틱류(페트병 포함)" background="green" />
-    <Choice value="비닐류" background="green" />
-    <Choice value="스티로폼류" background="green" />
-    <Choice value="음식물쓰레기" background="green" />
-    <Choice value="음식물쓰레기 같지만 일반쓰레기" background="green" />
-  </Choices>
-  
-
-  <Choices name="worker" toName="image" showInLine="true">
-    <View style="width: 100%">
-      <Header value="작업자 코드를 선택해주세요" />
-    </View>
-    <Choice value="A" />
-    <Choice value="B" />
-    <Choice value="C" />
-    <Choice value="D" />
-    <Choice value="E" />
-    <Choice value="F" />
-    <Choice value="G" />
-    <Choice value="H" />
-    <Choice value="I" />
-    <Choice value="J" />
-  </Choices>
+    <Choices name="worker" toName="image" showInLine="true">
+      <View style="width: 100%">
+        <Header value="작업자 코드를 선택해주세요" />
+      </View>
+      <Choice value="A" />
+      <Choice value="B" />
+      <Choice value="C" />
+      <Choice value="D" />
+      <Choice value="E" />
+      <Choice value="F" />
+      <Choice value="G" />
+      <Choice value="H" />
+      <Choice value="I" />
+      <Choice value="J" />
+    </Choices>
+  </View>  
 </View>
