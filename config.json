@@ -8,7 +8,7 @@
   "input_path": null,
   "output_dir": "/Users/jaeyeongjo/PycharmProjects/trash-label-studio/trash_project/completions",
   "instruction": "이 사이트는 쓰레기를 라벨링하기 위한 사이트입니다.",
-  "allow_delete_completions": true,
+  "allow_delete_completions": false,
   "templates_dir": "examples",
   "editor": {
     "debug": false
