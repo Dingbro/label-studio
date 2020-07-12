@@ -15,7 +15,7 @@
     <Choices name="class" toName="image" showInLine="true" choice="multiple"
             visibleWhen="choice-selected"
             whenTagName="importance"
-            whenChoiceValue="A케에스">
+            whenChoiceValue="A케이스">
       <View style="width: 100%">
         <Header value="사진 내에 존재하는 쓰레기 유형을 모두 선택해주세요" />
       </View>
