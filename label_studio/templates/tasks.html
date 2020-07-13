@@ -663,7 +663,7 @@
                       class: 'error',
                       title: title,
                       message: message,
-                      displayTime: this.timer_interval * 0.2,
+                      displayTime: 5000,
                       position: 'bottom center'
                   })
               }
@@ -699,7 +699,7 @@
               this.page_size = getUrlArg('page_size', this.page_size);
               this.loadAll();
 
-              this.timer_interval = parseInt(getUrlArg('timer', '50000'));
+              this.timer_interval = parseInt(getUrlArg('timer', '120000'));
               if (this.timer_interval > 0)
                 this.toggleAutoUpdateTimer();
 
