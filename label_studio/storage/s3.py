@@ -1,6 +1,7 @@
 import logging
 import boto3
 import json
+import time
 
 from .base import CloudStorage, BaseStorageForm, BooleanField, Optional, StringField
 
@@ -63,11 +64,17 @@ class S3Storage(CloudStorage):
         s3.Object(bucket.name, key).put(Body=value)
 
     def _get_objects(self):
+        t1 = time.time()
         bucket = self.client['bucket']
         if self.prefix:
             bucket_iter = bucket.objects.filter(Prefix=self.prefix + '/', Delimiter='/').all()
         else:
             bucket_iter = bucket.objects.all()
+        t2 = time.time()
+        print("*********** get objects")
+        print(t2 - t1)
+        print("*********************")
+        
         return (obj.key for obj in bucket_iter)
 
 

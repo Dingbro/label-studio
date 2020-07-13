@@ -3,6 +3,7 @@ import io
 import logging
 import json
 import random
+import time
 
 from shutil import copy2
 from collections import defaultdict, OrderedDict
@@ -402,8 +403,12 @@ class Project(object):
                 m.clear(self)
 
     def next_task(self, completed_tasks_ids):
+        st = time.time()
         completed_tasks_ids = set(completed_tasks_ids)
+        t1 = time.time()
         sampling = self.config.get('sampling', 'sequential')
+
+        logger.warning("completed_tasks_id time : " + str(t1-st))
 
         # Tasks are ordered ascending by their "id" fields. This is default mode.
         task_iter = filter(lambda i: i not in self.target_storage, self.source_storage.ids())
@@ -415,6 +420,9 @@ class Project(object):
         # Tasks are sampled with equal probabilities
         elif sampling == 'uniform':
             actual_tasks_ids = list(task_iter)
+            t2 = time.time()
+            logger.warning("get task iter : " + str(t2-t1))
+
             if not actual_tasks_ids:
                 return None
             random.shuffle(actual_tasks_ids)

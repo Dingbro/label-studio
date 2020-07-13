@@ -2,6 +2,7 @@ import boto3
 import logging
 import socket
 import google.auth
+import time
 
 from botocore.exceptions import ClientError
 from urllib.parse import urlparse
@@ -17,6 +18,9 @@ logger = logging.getLogger(__name__)
 
 PRESIGNED_URL_TTL_MINUTES = 1
 
+global_s3_client, _ = get_client_and_resource()
+global_last_t = time.time()
+print("global S3 client Generated")
 
 def resolve_task_data_uri(task, **kwargs):
     out = {}
@@ -34,11 +38,22 @@ def resolve_task_data_uri(task, **kwargs):
 
 
 def resolve_s3(url, s3_client=None, **kwargs):
+    global global_last_t
+    global global_s3_client
     r = urlparse(url, allow_fragments=False)
     bucket_name = r.netloc
     key = r.path.lstrip('/')
-    if s3_client is None:
-        s3_client, _ = get_client_and_resource(**kwargs)
+    # if s3_client is None:
+    #     t1 = time.time()
+    #     s3_client, _ = get_client_and_resource(**kwargs)
+    #     t2 = time.time()
+    if time.time() - global_last_t > 3600:
+        print(" #### in if")
+        global_s3_client, _ = get_client_and_resource()
+        print("before assign")
+        global_last_t = time.time()
+        
+    s3_client = global_s3_client
     try:
         presigned_url = s3_client.generate_presigned_url(
             ClientMethod='get_object',

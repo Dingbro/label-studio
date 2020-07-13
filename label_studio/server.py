@@ -553,15 +553,24 @@ def api_generate_next_task():
     """
     project = project_get_or_create()
     # try to find task is not presented in completions
+    t1 = time.time()
     completed_tasks_ids = project.get_completions_ids()
+    t2 = time.time()
     task = project.next_task(completed_tasks_ids)
+    t3 = time.time()
     if task is None:
         # no tasks found
         project.analytics.send(getframeinfo(currentframe()).function, error=404)
         return make_response('', 404)
 
     task = resolve_task_data_uri(task)
+    t4 = time.time()
 
+    print("===============")
+    print("557", t2 - t1)
+    print("559", t3 - t2)
+    print("566", t4 - t3)
+    print("===============")
     #project.analytics.send(getframeinfo(currentframe()).function)
 
     # collect prediction from multiple ml backends
@@ -666,7 +675,7 @@ def api_all_tasks():
     """ Get full tasks with pagination, completions and predictions
     """
     project = project_get_or_create()
-    page, page_size = int(request.args.get('page', 1)), int(request.args.get('page_size', 10))
+    page, page_size = int(request.args.get('page', 1)), int(request.args.get('page_size', 500))
     order = request.args.get('order', 'id')
     if page < 1 or page_size < 1:
         return make_response(jsonify({'detail': 'Incorrect page or page_size'}), 422)
