@@ -411,7 +411,7 @@ class Project(object):
         logger.warning("completed_tasks_id time : " + str(t1-st))
 
         # Tasks are ordered ascending by their "id" fields. This is default mode.
-        task_iter = filter(lambda i: i not in self.target_storage, self.source_storage.ids())
+        task_iter = filter(lambda i: i not in completed_tasks_ids, self.source_storage.ids())
         if sampling == 'sequential':
             task_id = next(task_iter, None)
             if task_id is not None:

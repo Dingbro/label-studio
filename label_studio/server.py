@@ -675,7 +675,7 @@ def api_all_tasks():
     """ Get full tasks with pagination, completions and predictions
     """
     project = project_get_or_create()
-    page, page_size = int(request.args.get('page', 1)), int(request.args.get('page_size', 500))
+    page, page_size = int(request.args.get('page', 1)), int(request.args.get('page_size', 10))
     order = request.args.get('order', 'id')
     if page < 1 or page_size < 1:
         return make_response(jsonify({'detail': 'Incorrect page or page_size'}), 422)
