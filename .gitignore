@@ -54,3 +54,4 @@ build/
 dist/
 venv/
 trash_project/
+completions/
