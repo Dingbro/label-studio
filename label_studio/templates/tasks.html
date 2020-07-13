@@ -403,7 +403,7 @@
                   page_size: Cookies.get('page_size', 10),
                   order: Cookies.get('order', 'id'),
                   auto_update_timer: null,
-                  timer_interval: 5000,
+                  timer_interval: 50000,
                   error: null
               }
           },
@@ -663,7 +663,7 @@
                       class: 'error',
                       title: title,
                       message: message,
-                      displayTime: this.timer_interval * 2,
+                      displayTime: this.timer_interval * 0.2,
                       position: 'bottom center'
                   })
               }
@@ -699,7 +699,7 @@
               this.page_size = getUrlArg('page_size', this.page_size);
               this.loadAll();
 
-              this.timer_interval = parseInt(getUrlArg('timer', '5000'));
+              this.timer_interval = parseInt(getUrlArg('timer', '50000'));
               if (this.timer_interval > 0)
                 this.toggleAutoUpdateTimer();
 
