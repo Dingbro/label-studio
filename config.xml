@@ -27,25 +27,6 @@
       <Choice value="음식물쓰레기" background="green" />
       <Choice value="음식물쓰레기 같지만 일반쓰레기" background="green" />
     </Choices>
-  
-    <Choices name="worker" toName="image" showInLine="true" required="true" requiredMessage="작업자 코드를 선택해주세요.">
-      <View style="width: 100%">
-        <Header value="작업자 코드를 선택해주세요" />
-      </View>
-      <Choice value="건희" />
-      <Choice value="상윤" />
-      <Choice value="지승" />
-      <Choice value="종혁" />
-      <Choice value="혜리" />
-      <Choice value="민호" />
-      <Choice value="주영" />
-      <Choice value="두혁" />
-      <Choice value="참진" />
-      <Choice value="구슬" />
-      <Choice value="은서" />
-      <Choice value="광조" />
-      <Choice value="Admin" />
-    </Choices>
   </View>  
   
     <View style="height: 100%; overflow: auto;">
