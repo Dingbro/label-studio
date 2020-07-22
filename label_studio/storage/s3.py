@@ -71,9 +71,9 @@ class S3Storage(CloudStorage):
         else:
             bucket_iter = bucket.objects.all()
         t2 = time.time()
-        print("*********** get objects")
-        print(t2 - t1)
-        print("*********************")
+        # print("*********** get objects")
+        # print(t2 - t1)
+        # print("*********************")
         
         return (obj.key for obj in bucket_iter)
 

@@ -566,11 +566,11 @@ def api_generate_next_task():
     task = resolve_task_data_uri(task)
     t4 = time.time()
 
-    print("===============")
-    print("557", t2 - t1)
-    print("559", t3 - t2)
-    print("566", t4 - t3)
-    print("===============")
+    # print("===============")
+    # print("557", t2 - t1)
+    # print("559", t3 - t2)
+    # print("566", t4 - t3)
+    # print("===============")
     #project.analytics.send(getframeinfo(currentframe()).function)
 
     # collect prediction from multiple ml backends
